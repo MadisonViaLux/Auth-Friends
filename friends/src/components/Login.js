@@ -53,7 +53,9 @@ export default withFormik({
         .max(20, 'Username must be under 20 characters')
         .required('Username Required'),
 
-        password: Yup.string().min(8, 'Password must be under 20 characters').required('Username Required')
+        password: Yup.string()
+        .min(8, 'Password must be under 20 characters')
+        .required('Username Required')
     })
 
 })(Login)
