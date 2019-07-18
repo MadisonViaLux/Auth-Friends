@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import axios from "axios";
 
 
-
 function Login ({touched, errors}){
 
 
@@ -56,6 +55,17 @@ export default withFormik({
         password: Yup.string()
         .min(8, 'Password must be under 20 characters')
         .required('Username Required')
-    })
+    }),
+
+    // handleSubmit(values, formikBag){
+    //     const url = 'http://localhost:5000/';
+
+    //     axios.post(url, values).then(res =>{
+    //         localStorage.setItem('token', res.data.token);
+    //         formikBag.props.history.push('')
+    //     })
+    // }
+
+
 
 })(Login)
