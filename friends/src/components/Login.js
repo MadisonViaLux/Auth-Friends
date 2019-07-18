@@ -43,9 +43,11 @@ export default withFormik({
 
     mapPropsToValues(){
         return{
-            username: ''
+            username: '',
+            password: ''
+        };
+    },
 
-        }
-    }
+    validationSchema
 
 })(Login)
