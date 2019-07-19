@@ -5,7 +5,7 @@ import {axiosAuth} from './axiosAuth';
 
 
 
-function Login ({touched, errors}){
+function Login ({touched, errors, isSubmitting}){
 
 
     return(
@@ -33,6 +33,7 @@ function Login ({touched, errors}){
             </div>
 
             <button>Login</button>
+            {isSubmitting && 'YEET'}
 
         </Form>
     )
@@ -63,7 +64,8 @@ export default withFormik({
 
         return axiosAuth().post(url, values).then(res =>{
             console.log(res)
-            localStorage.setItem('useToken', res.data.token);
+            localStorage.setItem('useToken', res.data.payload);
+            formikBag.resetForm();
             formikBag.props.history.push('')
         })
     }
