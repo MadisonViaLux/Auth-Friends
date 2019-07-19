@@ -1,7 +1,8 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import {axiosAuth} from './axiosAuth';
+
 
 
 function Login ({touched, errors}){
@@ -15,7 +16,7 @@ function Login ({touched, errors}){
                 <Field 
                 name='username'
                 type='text'
-                autocomplete='off' />
+                autoComplete='off' />
 
                 <h3>{touched.username && errors.username}</h3>
             </div>
@@ -26,7 +27,7 @@ function Login ({touched, errors}){
                 <Field 
                 name='password'
                 type='password'
-                autocomplete='off' />
+                autoComplete='off' />
 
                 <h3>{touched.password && errors.password}</h3>
             </div>
@@ -42,8 +43,8 @@ export default withFormik({
 
     mapPropsToValues(){
         return{
-            username: '',
-            password: ''
+            username: 'Lambda School',
+            password: 'i<3Lambd4'
         };
     },
 
@@ -57,14 +58,15 @@ export default withFormik({
         .required('Username Required')
     }),
 
-    // handleSubmit(values, formikBag){
-    //     const url = 'http://localhost:5000/';
+    handleSubmit(values, formikBag){
+        const url = '/login';
 
-    //     axios.post(url, values).then(res =>{
-    //         localStorage.setItem('token', res.data.token);
-    //         formikBag.props.history.push('')
-    //     })
-    // }
+        return axiosAuth().post(url, values).then(res =>{
+            console.log(res)
+            localStorage.setItem('useToken', res.data.token);
+            formikBag.props.history.push('')
+        })
+    }
 
 
 

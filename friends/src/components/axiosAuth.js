@@ -11,6 +11,6 @@ export const axiosAuth = () => {
             'Authorization': `${token}`
         },
 
-        baseUrl: 'http://localhost:5000/api'
+        baseURL: 'http://localhost:5000/api'
     })
 }

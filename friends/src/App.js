@@ -22,8 +22,6 @@ function App() {
       <Route exact path='/' component={Login} />
       <Route exact path='/FriendsList'  />
 
-      {/* <Login /> */}
-
     </div>
   );
 }
