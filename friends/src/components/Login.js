@@ -57,13 +57,13 @@ export default withFormik({
     }),
 
     handleSubmit(values, formikBag){
-        const url = '/login';
+        const url = '/';
 
         return axiosAuth().post(url, values).then(res =>{
-            console.log(res)
+            // console.log(res)
             localStorage.setItem('useToken', res.data.payload);
             formikBag.resetForm();
-            formikBag.props.history.push('')
+            formikBag.props.history.push('api/friends')
         })
     }
 })(Login)
