@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {axiosAuth} from '../utils/axiosAuth'
 
+import { CardList } from './CardList'
+
+
+
 export const FriendsList = props => {
     // console.log(props)
 
@@ -27,6 +31,15 @@ export const FriendsList = props => {
     return(
         <div>
             HeLlO tHeRe
+
+            {friends.map(item => (
+                <CardList 
+                    key={item.id}
+                    name={item.name}
+                    email={item.email}
+                    age={item.age}
+            />))}
+
         </div>
     )
 }
