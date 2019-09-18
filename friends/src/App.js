@@ -14,13 +14,13 @@ function App() {
 
         <Route exact path='/'>
           <Link to='/api/login'>Login</Link>
+          <Link to='/api/friends'>friends</Link>
         </Route>
         
         <PrivateRoute exact path='/api/friends' component={FriendsList} />
         
         <Route exact path='/api/login' component={Login} />
         
-        hello there
       </header>
     </div> 
   );

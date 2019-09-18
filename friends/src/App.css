@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+.friendCard{
+  border: 1.5px solid rgb(54, 106, 219);
+  border-radius: 5%;
+  margin: 1rem;
+}

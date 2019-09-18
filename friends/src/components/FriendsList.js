@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import {axiosAuth} from '../utils/axiosAuth'
 
+import Loader from "react-loader-spinner";
+import {axiosAuth} from '../utils/axiosAuth'
 import { CardList } from './CardList'
 
 
@@ -26,19 +27,45 @@ export const FriendsList = props => {
     }, [])
 
 
-
+    const LoadCard = () => {
+        if(friends === []){
+            return (
+                <div>
+                    <Loader
+                        type="Ball-Triangle"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                    />
+                </div>
+            )
+         } else {
+            return (
+                <div>
+                    {friends.map(item => (
+                        <CardList 
+                        key={item.id}
+                        name={item.name}
+                        email={item.email}
+                        age={item.age}
+                    />))}
+                </div>
+                )
+         }
+    } 
 
     return(
         <div>
-            HeLlO tHeRe
 
-            {friends.map(item => (
+            {LoadCard()}
+
+            {/* {friends.map(item => (
                 <CardList 
                     key={item.id}
                     name={item.name}
                     email={item.email}
                     age={item.age}
-            />))}
+            />))} */}
 
         </div>
     )
