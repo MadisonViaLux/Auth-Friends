@@ -60,6 +60,10 @@ function authenticator(req, res, next) {
   }
 }
 
+
+
+
+
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'Lambda School' && password === 'i<3Lambd4') {
@@ -73,6 +77,10 @@ app.post('/api/login', (req, res) => {
       .json({ error: 'Username or Password incorrect. Please see Readme' });
   }
 });
+
+
+
+
 
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
@@ -90,6 +98,10 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
+
+
+
+
 app.post('/api/friends', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
 
@@ -97,6 +109,10 @@ app.post('/api/friends', authenticator, (req, res) => {
 
   res.send(friends);
 });
+
+
+
+
 
 app.put('/api/friends/:id', authenticator, (req, res) => {
   const { id } = req.params;
@@ -117,6 +133,10 @@ app.put('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
+
+
+
+
 app.delete('/api/friends/:id', authenticator, (req, res) => {
   const { id } = req.params;
 
@@ -128,6 +148,10 @@ app.delete('/api/friends/:id', authenticator, (req, res) => {
 function getNextId() {
   return nextId++;
 }
+
+
+
+
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);

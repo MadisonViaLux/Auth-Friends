@@ -15,13 +15,13 @@ function App() {
           <Link to='/api/login'>Login</Link>
         </Route>
         
-        <Route exact path='friends' component={FriendsList} />
+        <Route exact path='/api/friends' component={FriendsList} />
         
         <Route exact path='/api/login' component={Login} />
         
         hello there
       </header>
-    </div>
+    </div> 
   );
 }
 
